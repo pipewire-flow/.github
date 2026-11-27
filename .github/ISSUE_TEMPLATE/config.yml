@@ -4,5 +4,5 @@ contact_links:
     url: https://gitlab.freedesktop.org/pipewire/pipewire/-/issues
     about: For bugs in PipeWire rather than in these wrappers.
   - name: Security vulnerability
-    url: https://github.com/pipewire-flow/pipewire-flow/security/advisories/new
-    about: Report privately so a fix can go out before the details do.
+    url: https://github.com/pipewire-flow/.github/blob/main/SECURITY.md
+    about: Report privately, through the repository concerned, so a fix can go out before the details do.
