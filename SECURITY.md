@@ -21,6 +21,9 @@ These are small projects with a single maintainer, so treat any timeline as
 best-effort rather than a guarantee. You should get an acknowledgement within
 a week. If a report leads to a fix, the advisory is published with it, and
 you are credited unless you ask otherwise.
+For the Rust crates, the fix is also filed with the
+[RustSec advisory database](https://rustsec.org), so `cargo audit` warns
+anyone still depending on an affected version.
 
 ## Scope
 
