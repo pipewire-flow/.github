@@ -13,8 +13,8 @@ body:
     attributes:
       label: Which project
       options:
-        - tinypipewire (the C library)
-        - tinypipewire-rs (the Rust bindings)
+        - pipewire-flow (the C library)
+        - pipewire-flow-rs (the Rust bindings)
         - Both
     validations:
       required: true

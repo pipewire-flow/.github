@@ -13,8 +13,8 @@ body:
     attributes:
       label: Which project
       options:
-        - tinypipewire (the C library)
-        - tinypipewire-rs (the Rust bindings)
+        - pipewire-flow (the C library)
+        - pipewire-flow-rs (the Rust bindings)
         - Not sure
     validations:
       required: true
@@ -42,8 +42,8 @@ body:
       label: Version
       description: >
         A release tag or a commit. For the Rust crates, give the crate
-        version and what `tinypipewire::C_API_VERSION` reports.
-      placeholder: "v0.9.1, or 8daf2d1"
+        version and what `pipewire_flow::C_API_VERSION` reports.
+      placeholder: "v0.13.0, or a28fb13"
     validations:
       required: true
   - type: input
