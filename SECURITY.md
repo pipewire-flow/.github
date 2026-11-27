@@ -5,8 +5,8 @@
 Report it privately through GitHub, using **Report a vulnerability** on the
 Security tab of the repository concerned:
 
-- [tinypipewire](https://github.com/tinyPipeWire/tinypipewire/security/advisories/new)
-- [tinypipewire-rs](https://github.com/tinyPipeWire/tinypipewire-rs/security/advisories/new)
+- [pipewire-flow](https://github.com/pipewire-flow/pipewire-flow/security/advisories/new)
+- [pipewire-flow-rs](https://github.com/pipewire-flow/pipewire-flow-rs/security/advisories/new)
 
 That opens a draft advisory only you and the maintainers can read. Please use
 it rather than a public issue, so a fix can go out before the details do.

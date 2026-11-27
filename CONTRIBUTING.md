@@ -1,7 +1,7 @@
 # Contributing
 
-These notes cover both [tinypipewire](https://github.com/tinyPipeWire/tinypipewire)
-(the C library) and [tinypipewire-rs](https://github.com/tinyPipeWire/tinypipewire-rs)
+These notes cover both [pipewire-flow](https://github.com/pipewire-flow/pipewire-flow)
+(the C library) and [pipewire-flow-rs](https://github.com/pipewire-flow/pipewire-flow-rs)
 (the Rust bindings). Anything a repository needs to say differently, it says
 in its own README.
 
@@ -28,10 +28,10 @@ meson test -C build --suite hardware
 ```
 
 The Rust bindings build with Cargo, against either an installed C library or
-the copy pinned as a submodule under `tinypipewire-sys/vendor/`:
+the copy pinned as a submodule under `pipewire-flow-sys/vendor/`:
 
 ```sh
-git clone --recurse-submodules https://github.com/tinyPipeWire/tinypipewire-rs
+git clone --recurse-submodules https://github.com/pipewire-flow/pipewire-flow-rs
 cargo build --features vendored
 cargo test --workspace --features vendored
 ```
@@ -42,10 +42,10 @@ change to the bindgen version itself, since a new release can generate
 different code from identical headers. Regenerate either way:
 
 ```sh
-TINYPIPEWIRE_SYS_UPDATE_BINDINGS=1 cargo build -p tinypipewire-sys
+PIPEWIRE_FLOW_SYS_UPDATE_BINDINGS=1 cargo build -p pipewire-flow-sys
 ```
 
-On a machine with no PipeWire, add `TINYPIPEWIRE_SYS_HEADERS_ONLY=1` to read
+On a machine with no PipeWire, add `PIPEWIRE_FLOW_SYS_HEADERS_ONLY=1` to read
 the submodule's headers and skip linking.
 
 Dependabot raises the bindgen requirement but never regenerates, so its pull
@@ -64,7 +64,7 @@ AddressSanitizer and UndefinedBehaviorSanitizer. A pull request that changes
 a public C signature gets a comment saying so — that is a prompt to check the
 change is deliberate, not a failure.
 
-For the Rust crates, one job packages `tinypipewire-sys` and builds the
+For the Rust crates, one job packages `pipewire-flow-sys` and builds the
 extracted copy. That is what catches a build reaching for a file the
 published crate would not carry, so keep anything the build reads inside the
 crate directory.
@@ -96,12 +96,12 @@ that drifts fails the build like any other test.
 
 The C library and the two Rust crates version independently, because a change
 to the Rust interface and a change to the C API are different events.
-`tinypipewire-sys` names the C release it pins as build metadata, as in
-`0.1.0+tpw0.9.1`.
+`pipewire-flow-sys` names the C release it pins as build metadata, as in
+`0.3.0+pwf0.13.0`.
 
 **Moving the pinned C release bumps the crate version too.** Build metadata
-is ignored when versions are compared, so `0.1.0+tpw0.9.1` and
-`0.1.0+tpw0.10.0` are the same version to Cargo and to crates.io, and the
+is ignored when versions are compared, so `0.3.0+pwf0.13.0` and
+`0.3.0+pwf0.14.0` are the same version to Cargo and to crates.io, and the
 second could never be published. Raise the patch alongside the pin. The
 metadata records which C release a crate carries; it never distinguishes two
 releases on its own.
@@ -117,9 +117,9 @@ supporting crate carries its name, so the two are told apart at a glance.
 
 | What | Tag |
 | --- | --- |
-| tinypipewire (the C library) | `v0.9.1` |
-| tinypipewire (the crate) | `v0.1.0` |
-| tinypipewire-sys | `tinypipewire-sys-v0.1.0+tpw0.9.1` |
+| pipewire-flow (the C library) | `v0.13.0` |
+| pipewire-flow (the crate) | `v0.3.0` |
+| pipewire-flow-sys | `pipewire-flow-sys-v0.3.0+pwf0.13.0` |
 
 The `-sys` tag keeps its build metadata, so the C release a crate shipped is
 readable from the tag list without opening anything.

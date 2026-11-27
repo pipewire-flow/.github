@@ -1,4 +1,4 @@
-# tinyPipeWire
+# pipewire-flow
 
 PipeWire exposes a lot of surface to an application that only wants to move
 audio or video: a thread loop to drive, SPA POD format negotiation to get
@@ -7,8 +7,8 @@ opaque-handle API in front of that.
 
 | Repository | Language | What it is |
 | --- | --- | --- |
-| [tinypipewire](https://github.com/tinyPipeWire/tinypipewire) | C | The library. Wraps `pw_stream` for audio and video capture, audio playback, and multi-port filters. |
-| [tinypipewire-rs](https://github.com/tinyPipeWire/tinypipewire-rs) | Rust | Bindings to it — raw FFI in `tinypipewire-sys`, owned handles and `Result` in `tinypipewire`. |
+| [pipewire-flow](https://github.com/pipewire-flow/pipewire-flow) | C | The library. Wraps `pw_stream` for audio and video capture, audio playback, and multi-port filters. |
+| [pipewire-flow-rs](https://github.com/pipewire-flow/pipewire-flow-rs) | Rust | Bindings to it — raw FFI in `pipewire-flow-sys`, owned handles and `Result` in `pipewire-flow`. |
 
 ## Where to start
 
@@ -19,11 +19,11 @@ Write C, and you want the library directly: it builds with Meson and needs
 meson setup build && meson compile -C build
 ```
 
-Write Rust, and you want `tinypipewire-rs`, which either links an installed
+Write Rust, and you want `pipewire-flow-rs`, which either links an installed
 copy of the C library or builds the vendored one it pins as a submodule.
 
 ```sh
-git clone --recurse-submodules https://github.com/tinyPipeWire/tinypipewire-rs
+git clone --recurse-submodules https://github.com/pipewire-flow/pipewire-flow-rs
 cargo build --features vendored
 ```
 
