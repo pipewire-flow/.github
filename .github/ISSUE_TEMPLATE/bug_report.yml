@@ -33,7 +33,6 @@ body:
         The smallest program that shows it, ideally one that starts from an
         example. Say which target it runs against, since behaviour differs
         between a real device and a null sink.
-      render: c
     validations:
       required: true
   - type: input

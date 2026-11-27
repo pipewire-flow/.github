@@ -5,8 +5,8 @@ These notes cover both [pipewire-flow](https://github.com/pipewire-flow/pipewire
 (the Rust bindings). Anything a repository needs to say differently, it says
 in its own README.
 
-Both target Linux, because PipeWire does. You need a running PipeWire daemon
-to run the tests: they connect real streams rather than mocking the graph.
+Both target Linux, because PipeWire does. Tests that need the graph connect
+real streams to a running PipeWire daemon rather than mocking it.
 
 ## Building and testing
 
@@ -35,6 +35,16 @@ git clone --recurse-submodules https://github.com/pipewire-flow/pipewire-flow-rs
 cargo build --features vendored
 cargo test --workspace --features vendored
 ```
+
+That runs only the tests that need no daemon. The ones that do are ignored by
+default and run against a live daemon with a null sink and a null source,
+which CI creates:
+
+```sh
+cargo test -p pipewire-flow --test smoke -- --ignored --test-threads=1
+```
+
+Set `PWF_SMOKE_SINK` or `PWF_SMOKE_SOURCE` to point them at other nodes.
 
 The committed bindings have to match what bindgen produces today, or the
 `bindings` job fails. Two things move them: a change to the C headers, and a
@@ -73,7 +83,7 @@ crate directory.
 
 Subjects are `area: Imperative sentence`, where the area is either the kind
 of change (`build`, `ci`, `docs`, `tests`, `examples`, `api`) or the
-subsystem touched (`stream`, `filter`, `video`, `utils`, `sys`). No trailing
+subsystem touched (`stream`, `filter`, `video`, `log`, `utils`, `sys`). No trailing
 period.
 
 ```

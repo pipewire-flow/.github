@@ -37,4 +37,3 @@ body:
     attributes:
       label: What the API might look like
       description: A sketch of the call you would want. Rough is fine.
-      render: c

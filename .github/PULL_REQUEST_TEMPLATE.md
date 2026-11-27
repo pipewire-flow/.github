@@ -1,7 +1,7 @@
 <!--
 Subject line: `area: Imperative sentence`, where area is the kind of change
 (build, ci, docs, tests, examples, api) or the subsystem touched (stream,
-filter, video, utils, sys). See CONTRIBUTING.md.
+filter, video, log, utils, sys). See CONTRIBUTING.md.
 -->
 
 ## What this changes
